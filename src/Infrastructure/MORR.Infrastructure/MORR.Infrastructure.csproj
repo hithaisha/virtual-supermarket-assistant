@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <Folder Include="DatabaseUpdateScripts\" />
-    <Folder Include="MigrationsScripts\" />
   </ItemGroup>
 
 </Project>

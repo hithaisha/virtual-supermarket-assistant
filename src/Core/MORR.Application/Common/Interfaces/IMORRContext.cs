@@ -8,6 +8,8 @@ namespace MORR.Application.Common.Interfaces
         DbSet<User> Users { get; }
         DbSet<Role> Roles { get; }
         DbSet<UserRole> UserRoles { get; }
+        DbSet<Product> Products { get; }
+        DbSet<Category> Categories { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         Task BeginTransactionAsync(CancellationToken cancellationToken);

@@ -36,6 +36,7 @@ namespace MORR.Infrastructure.Data
             try
             {
                 await SeedUsersAndRolesAsync();
+                await SeedProductAsync();
             }
             catch (Exception ex)
             {
@@ -62,6 +63,7 @@ namespace MORR.Infrastructure.Data
 
                 _context.Roles.Add(adminRole);
                 _context.Roles.Add(managerRole);
+
 
                 if (!_context.Users.Any())
                 {
@@ -117,6 +119,69 @@ namespace MORR.Infrastructure.Data
 
                 await _context.SaveChangesAsync();
             }
+        }
+
+        private async Task SeedProductAsync()
+        {
+            if (!_context.Categories.Any())
+            {
+                var category1 = new Category()
+                {
+                    Name = "Electronics"
+                };
+
+                var category2 = new Category()
+                {
+                    Name = "Clothing & Fashion"
+                };
+
+                var category3 = new Category()
+                {
+                    Name = "Home & Kitchen"
+                };
+
+                var category4 = new Category()
+                {
+                    Name = "Health & Beauty"
+                };
+
+                var category5 = new Category()
+                {
+                    Name = "Sports & Outdoors"
+                };
+
+                var category6 = new Category()
+                {
+                    Name = "Toys & Games"
+                };
+
+                var category7 = new Category()
+                {
+                    Name = "Automotive"
+                };
+
+                var category8 = new Category()
+                {
+                    Name = "Food & Beverages"
+                };
+
+                var category9 = new Category()
+                {
+                    Name = "Pets"
+                };
+
+                _context.Categories.Add(category1);
+                _context.Categories.Add(category2);
+                _context.Categories.Add(category3);
+                _context.Categories.Add(category4);
+                _context.Categories.Add(category5);
+                _context.Categories.Add(category6);
+                _context.Categories.Add(category7);
+                _context.Categories.Add(category8);
+                _context.Categories.Add(category9);
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

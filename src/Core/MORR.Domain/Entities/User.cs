@@ -10,6 +10,11 @@ namespace MORR.Domain.Entities
             UpdatedUsers = new HashSet<User>();
 
             UserRoles = new HashSet<UserRole>();
+
+            CreatedProduct = new HashSet<Product>();
+            UpdatedProduct = new HashSet<Product>();
+
+
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -21,5 +26,10 @@ namespace MORR.Domain.Entities
         public virtual ICollection<User> UpdatedUsers { get; set; }
 
         public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        public virtual ICollection<Product> CreatedProduct { get; set; }
+        public virtual ICollection<Product> UpdatedProduct { get; set; }
+
+       
     }
 }

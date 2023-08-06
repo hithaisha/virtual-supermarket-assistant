@@ -4,6 +4,7 @@ using MORR.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MORR.Infrastructure.Migrations
 {
     [DbContext(typeof(MORRContext))]
-    partial class MORRContextModelSnapshot : ModelSnapshot
+    [Migration("20230806154221_MORR00002")]
+    partial class MORR00002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,9 +110,6 @@ namespace MORR.Infrastructure.Migrations
                         .HasPrecision(6, 2)
                         .HasColumnType("decimal(6,2)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.Property<string>("SKUCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -135,6 +135,38 @@ namespace MORR.Infrastructure.Migrations
                     b.HasIndex("UpdatedByUserId");
 
                     b.ToTable("Product", (string)null);
+                });
+
+            modelBuilder.Entity("MORR.Domain.Entities.ProductInventory", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SpecialNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedByUserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.HasIndex("UpdatedByUserId");
+
+                    b.ToTable("ProductInventory", (string)null);
                 });
 
             modelBuilder.Entity("MORR.Domain.Entities.Role", b =>
@@ -253,6 +285,32 @@ namespace MORR.Infrastructure.Migrations
                     b.Navigation("UpdatedByUser");
                 });
 
+            modelBuilder.Entity("MORR.Domain.Entities.ProductInventory", b =>
+                {
+                    b.HasOne("MORR.Domain.Entities.User", "CreatedByUser")
+                        .WithMany("CreatedProductInventories")
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MORR.Domain.Entities.Product", "Product")
+                        .WithMany("ProductInventories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MORR.Domain.Entities.User", "UpdatedByUser")
+                        .WithMany("UpdatedProductInventories")
+                        .HasForeignKey("UpdatedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("UpdatedByUser");
+                });
+
             modelBuilder.Entity("MORR.Domain.Entities.User", b =>
                 {
                     b.HasOne("MORR.Domain.Entities.User", "CreatedByUser")
@@ -294,6 +352,11 @@ namespace MORR.Infrastructure.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("MORR.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("ProductInventories");
+                });
+
             modelBuilder.Entity("MORR.Domain.Entities.Role", b =>
                 {
                     b.Navigation("UserRoles");
@@ -303,9 +366,13 @@ namespace MORR.Infrastructure.Migrations
                 {
                     b.Navigation("CreatedProduct");
 
+                    b.Navigation("CreatedProductInventories");
+
                     b.Navigation("CreatedUsers");
 
                     b.Navigation("UpdatedProduct");
+
+                    b.Navigation("UpdatedProductInventories");
 
                     b.Navigation("UpdatedUsers");
 
