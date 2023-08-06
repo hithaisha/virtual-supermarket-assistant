@@ -22,4 +22,8 @@
     <ProjectReference Include="..\MORR.Domain\MORR.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pipelines\Users\Queries\" />
+  </ItemGroup>
+
 </Project>

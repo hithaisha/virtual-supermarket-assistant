@@ -25,4 +25,9 @@
     <ProjectReference Include="..\..\Core\MORR.Application\MORR.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DatabaseUpdateScripts\" />
+    <Folder Include="MigrationsScripts\" />
+  </ItemGroup>
+
 </Project>
