@@ -53,6 +53,12 @@ namespace MORR.Infrastructure.Data.Configuration
                .HasForeignKey(f => f.CreatedByUserId)
                .OnDelete(DeleteBehavior.Restrict);
 
+
+            builder.HasOne<Category>(f => f.Category)
+                .WithMany(f => f.Products)
+                .HasForeignKey(f => f.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasOne<User>(f => f.UpdatedByUser)
                 .WithMany(f => f.UpdatedProduct)
                 .HasForeignKey(f => f.UpdatedByUserId)

@@ -32,12 +32,12 @@ namespace MORR.Application.Common.Extentions
         {
             if(productDto is null) productDto = new ProductDto();
 
-            product.Id = productDto.Id;
+            product.Id = product.Id;
             productDto.ItemName = product.ItemName;
             productDto.ItemCode = product.ItemCode;
             productDto.SKUCode = product.SKUCode;
             productDto.CategoryId = product.CategoryId;
-            productDto.CatedByName = product.Category.Name;
+            productDto.CategoryName = product.Category == null ? string.Empty :  product.Category.Name;
             productDto.DisplayInFrontPage = product.DisplayInFrontPage;
             productDto.Price = product.Price;
             productDto.IsShowWeb = product.IsShowWeb;
@@ -50,7 +50,7 @@ namespace MORR.Application.Common.Extentions
             productDto.Quantity = product.Quantity;
             productDto.CatedByName = $"{product.CreatedByUser.FirstName} {product.CreatedByUser.LastName}";
             productDto.CreatedDate = product.CreatedDate.ToString("MM/dd/yyyy");
-            productDto.CatedByName = $"{product.UpdatedByUser.FirstName} {product.UpdatedByUser.LastName}";
+            productDto.UpdatedByName = $"{product.UpdatedByUser.FirstName} {product.UpdatedByUser.LastName}";
             productDto.UpdatedDate = product.UpdateDate?.ToString("MM/dd/yyyy");
 
             return productDto;
