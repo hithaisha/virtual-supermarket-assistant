@@ -4,7 +4,6 @@ using MORR.Application.Common.Interfaces;
 using MORR.Domain.Entities;
 using MORR.Infrastructure.Interceptors;
 using System.Diagnostics;
-using System.Drawing;
 using System.Reflection;
 
 namespace MORR.Infrastructure.Data
@@ -19,6 +18,10 @@ namespace MORR.Infrastructure.Data
         public DbSet<Role> Roles => Set<Role>();
 
         public DbSet<UserRole> UserRoles => Set<UserRole>();
+
+        public DbSet<Product> Products => Set<Product>();
+
+        public DbSet<Category> Categories => Set<Category>();
 
         public MORRContext(DbContextOptions<MORRContext> options,
            AuditableEntitySaveChangesInterceptor auditableEntitySaveChangesInterceptor) : base(options)

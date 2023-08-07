@@ -38,6 +38,10 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IUserQueryRepository, UserQueryRepository>();
             services.AddTransient<IUserCommandRepository, UserCommandRepository>();
 
+            services.AddTransient<IProductCommandRepository, ProductCommandRepository>();
+            services.AddTransient<IProductQueryRepository, ProductQueryRepository>();
+
+            services.AddTransient<ICategoryQueryRepository, CategoryQueryRepository>();
 
             services.AddTransient<IDateTime, DateTimeService>();
             return services;
