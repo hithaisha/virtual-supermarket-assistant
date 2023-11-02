@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import React, { useState } from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import {
   Container,
   Row,
@@ -20,39 +20,39 @@ import {
   ModalHeader,
   Button,
   Label,
-} from "reactstrap";
-import seventeen from "../../../../public/assets/images/logos/17.png";
-import order from "../../../../public/assets/images/icon/dashboard/order.png";
-import sale from "../../../../public/assets/images/icon/dashboard/sale.png";
-import homework from "../../../../public/assets/images/icon/dashboard/homework.png";
-import one from "../../../../public/assets/images/dashboard/product/1.jpg";
-import nine from "../../../../public/assets/images/dashboard/product/9.jpg";
-import thirtyfour from "../../../../public/assets/images/pro3/34.jpg";
-import pro1 from "../../../../public/assets/images/pro3/1.jpg";
-import pro27 from "../../../../public/assets/images/pro3/27.jpg";
-import pro36 from "../../../../public/assets/images/pro3/36.jpg";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+} from 'reactstrap'
+import seventeen from '../../../../public/assets/images/logos/17.png'
+import order from '../../../../public/assets/images/icon/dashboard/order.png'
+import sale from '../../../../public/assets/images/icon/dashboard/sale.png'
+import homework from '../../../../public/assets/images/icon/dashboard/homework.png'
+import one from '../../../../public/assets/images/dashboard/product/1.jpg'
+import nine from '../../../../public/assets/images/dashboard/product/9.jpg'
+import thirtyfour from '../../../../public/assets/images/pro3/34.jpg'
+import pro1 from '../../../../public/assets/images/pro3/1.jpg'
+import pro27 from '../../../../public/assets/images/pro3/27.jpg'
+import pro36 from '../../../../public/assets/images/pro3/36.jpg'
+import dynamic from 'next/dynamic'
+// const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-import { apexPieChart, lineChart1 } from "../../../../data/vendorData";
+// import { apexPieChart, lineChart1 } from "../../../../data/vendorData";
 
 const SummaryData = [
   {
     img: '/assets/images/icon/dashboard/order.png',
-    title: "25",
-    desc: "Total Products",
+    title: '25',
+    desc: 'Total Products',
   },
   {
     img: '/assets/images/icon/dashboard/sale.png',
-    title: "12500",
-    desc: "Total Sales",
+    title: '12500',
+    desc: 'Total Sales',
   },
   {
     img: '/assets/images/icon/dashboard/homework.png',
-    title: "50",
-    desc: "Order Pending",
+    title: '50',
+    desc: 'Order Pending',
   },
-];
+]
 
 const Summary = ({ img, title, desc }) => {
   return (
@@ -65,59 +65,59 @@ const Summary = ({ img, title, desc }) => {
         </div>
       </div>
     </Col>
-  );
-};
+  )
+}
 
 const ProductData = [
   {
     img: one,
-    productName: "Neck Velvet Dress	",
-    category: "Women Clothes",
-    price: "$205",
-    stock: "1000",
-    sales: "2000",
+    productName: 'Neck Velvet Dress	',
+    category: 'Women Clothes',
+    price: '$205',
+    stock: '1000',
+    sales: '2000',
   },
   {
     img: nine,
-    productName: "Belted Trench Coat		",
-    category: "Women Clothes",
-    price: "$350",
-    stock: "800",
-    sales: "350",
+    productName: 'Belted Trench Coat		',
+    category: 'Women Clothes',
+    price: '$350',
+    stock: '800',
+    sales: '350',
   },
   {
     img: thirtyfour,
-    productName: "Men Print Tee",
-    category: "Men Clothes",
-    price: "$150",
-    stock: "750",
-    sales: "150",
+    productName: 'Men Print Tee',
+    category: 'Men Clothes',
+    price: '$150',
+    stock: '750',
+    sales: '150',
   },
   {
     img: pro1,
-    productName: "Woman Print Tee",
-    category: "Women Clothes",
-    price: "$150",
-    stock: "750",
-    sales: "150",
+    productName: 'Woman Print Tee',
+    category: 'Women Clothes',
+    price: '$150',
+    stock: '750',
+    sales: '150',
   },
   {
     img: pro27,
-    productName: "Men Print Tee",
-    category: "Men Clothes",
-    price: "$150",
-    stock: "750",
-    sales: "150",
+    productName: 'Men Print Tee',
+    category: 'Men Clothes',
+    price: '$150',
+    stock: '750',
+    sales: '150',
   },
   {
     img: pro36,
-    productName: "Men Print Tee",
-    category: "Men Clothes",
-    price: "$150",
-    stock: "750",
-    sales: "150",
+    productName: 'Men Print Tee',
+    category: 'Men Clothes',
+    price: '$150',
+    stock: '750',
+    sales: '150',
   },
-];
+]
 
 const TrendingProduct = ({ img, productName, price, sales }) => {
   return (
@@ -129,8 +129,8 @@ const TrendingProduct = ({ img, productName, price, sales }) => {
       <td>{price}</td>
       <td>{sales}</td>
     </tr>
-  );
-};
+  )
+}
 
 const AllProduct = ({ img, productName, category, price, stock, sales }) => {
   return (
@@ -148,65 +148,65 @@ const AllProduct = ({ img, productName, category, price, stock, sales }) => {
         <i className="fa fa-trash-o ms-1" aria-hidden="true"></i>
       </td>
     </tr>
-  );
-};
+  )
+}
 
 const OrderData = [
   {
-    id: "#125021",
-    productDetails: "Neck Velvet Dress",
-    status: "Shipped",
-    price: "$205",
+    id: '#125021',
+    productDetails: 'Neck Velvet Dress',
+    status: 'Shipped',
+    price: '$205',
   },
   {
-    id: "#521214",
-    productDetails: "Belted Trench Coat",
-    status: "Shipped",
-    price: "$350",
+    id: '#521214',
+    productDetails: 'Belted Trench Coat',
+    status: 'Shipped',
+    price: '$350',
   },
   {
-    id: "#521021",
-    productDetails: "Men Print Tee",
-    status: "pending",
-    price: "$150",
+    id: '#521021',
+    productDetails: 'Men Print Tee',
+    status: 'pending',
+    price: '$150',
   },
   {
-    id: "#245021",
-    productDetails: "Woman Print Tee",
-    status: "Shipped",
-    price: "$150",
+    id: '#245021',
+    productDetails: 'Woman Print Tee',
+    status: 'Shipped',
+    price: '$150',
   },
   {
-    id: "#122141",
-    productDetails: "Men Print Tee",
-    status: "canceled",
-    price: "$150",
+    id: '#122141',
+    productDetails: 'Men Print Tee',
+    status: 'canceled',
+    price: '$150',
   },
   {
-    id: "#125015",
-    productDetails: "Men Print Tee",
-    status: "pending",
-    price: "$150",
+    id: '#125015',
+    productDetails: 'Men Print Tee',
+    status: 'pending',
+    price: '$150',
   },
   {
-    id: "#245021",
-    productDetails: "women print tee",
-    status: "Shipped",
-    price: "$150",
+    id: '#245021',
+    productDetails: 'women print tee',
+    status: 'Shipped',
+    price: '$150',
   },
   {
-    id: "#122141",
-    productDetails: "men print tee",
-    status: "canceled",
-    price: "$150",
+    id: '#122141',
+    productDetails: 'men print tee',
+    status: 'canceled',
+    price: '$150',
   },
   {
-    id: "#125015",
-    productDetails: "men print tee",
-    status: "pending",
-    price: "$150",
+    id: '#125015',
+    productDetails: 'men print tee',
+    status: 'pending',
+    price: '$150',
   },
-];
+]
 
 const RecentOrder = ({ id, productDetails, status }) => {
   return (
@@ -215,8 +215,8 @@ const RecentOrder = ({ id, productDetails, status }) => {
       <td>{productDetails}</td>
       <td>{status}</td>
     </tr>
-  );
-};
+  )
+}
 
 const AllOrder = ({ id, productDetails, status, price }) => {
   return (
@@ -226,20 +226,20 @@ const AllOrder = ({ id, productDetails, status, price }) => {
       <td>{status}</td>
       <td>{price}</td>
     </tr>
-  );
-};
+  )
+}
 
 const ProfileData = [
-  { title: "Company Name", detail: "Fashion Store" },
-  { title: "Email Address", detail: "Mark.Enderess@Mail.Com" },
-  { title: "Country / Region", detail: "Downers Grove, IL" },
-  { title: "Year Established", detail: "2022" },
-  { title: "Total Employees", detail: "101 - 200 People" },
-  { title: "Category", detail: "Clothing" },
-  { title: "Street Address", detail: "549 Sulphur Springs Road" },
-  { title: "City/State", detail: "Downers Grove, IL" },
-  { title: "Zip", detail: "60515" },
-];
+  { title: 'Company Name', detail: 'Fashion Store' },
+  { title: 'Email Address', detail: 'Mark.Enderess@Mail.Com' },
+  { title: 'Country / Region', detail: 'Downers Grove, IL' },
+  { title: 'Year Established', detail: '2022' },
+  { title: 'Total Employees', detail: '101 - 200 People' },
+  { title: 'Category', detail: 'Clothing' },
+  { title: 'Street Address', detail: '549 Sulphur Springs Road' },
+  { title: 'City/State', detail: 'Downers Grove, IL' },
+  { title: 'Zip', detail: '60515' },
+]
 
 const ProfileDetail = ({ title, detail }) => {
   return (
@@ -253,14 +253,14 @@ const ProfileDetail = ({ title, detail }) => {
         </div>
       </div>
     </li>
-  );
-};
+  )
+}
 
 const Dashboard = () => {
-  const router = useRouter();
-  const [activeTab, setActiveTab] = useState("1");
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+  const router = useRouter()
+  const [activeTab, setActiveTab] = useState('1')
+  const [modal, setModal] = useState(false)
+  const toggle = () => setModal(!modal)
 
   return (
     <section className="dashboard-section section-b-space">
@@ -282,47 +282,47 @@ const Dashboard = () => {
                 <Nav tabs className="border-tab-primary">
                   <NavItem className="nav nav-tabs" id="myTab" role="tablist">
                     <NavLink
-                      className={activeTab === "1" ? "active" : ""}
-                      onClick={() => setActiveTab("1")}
+                      className={activeTab === '1' ? 'active' : ''}
+                      onClick={() => setActiveTab('1')}
                     >
                       Dashboard
                     </NavLink>
                   </NavItem>
                   <NavItem className="nav nav-tabs" id="myTab" role="tablist">
                     <NavLink
-                      className={activeTab === "2" ? "active" : ""}
-                      onClick={() => setActiveTab("2")}
+                      className={activeTab === '2' ? 'active' : ''}
+                      onClick={() => setActiveTab('2')}
                     >
                       Products
                     </NavLink>
                   </NavItem>
                   <NavItem className="nav nav-tabs" id="myTab" role="tablist">
                     <NavLink
-                      className={activeTab === "3" ? "active" : ""}
-                      onClick={() => setActiveTab("3")}
+                      className={activeTab === '3' ? 'active' : ''}
+                      onClick={() => setActiveTab('3')}
                     >
                       Order
                     </NavLink>
                   </NavItem>
                   <NavItem className="nav nav-tabs" id="myTab" role="tablist">
                     <NavLink
-                      className={activeTab === "4" ? "active" : ""}
-                      onClick={() => setActiveTab("4")}
+                      className={activeTab === '4' ? 'active' : ''}
+                      onClick={() => setActiveTab('4')}
                     >
                       Profile
                     </NavLink>
                   </NavItem>
                   <NavItem className="nav nav-tabs" id="myTab" role="tablist">
                     <NavLink
-                      className={activeTab === "5" ? "active" : ""}
-                      onClick={() => setActiveTab("5")}
+                      className={activeTab === '5' ? 'active' : ''}
+                      onClick={() => setActiveTab('5')}
                     >
                       Settings
                     </NavLink>
                   </NavItem>
                   <NavItem className="nav nav-tabs" id="myTab" role="tablist">
                     <NavLink
-                      className={activeTab === "6" ? "active" : ""}
+                      className={activeTab === '6' ? 'active' : ''}
                       onClick={toggle}
                     >
                       Logout
@@ -346,7 +346,7 @@ const Dashboard = () => {
                             title={data.title}
                             desc={data.desc}
                           />
-                        );
+                        )
                       })}
                     </Row>
                   </div>
@@ -354,28 +354,28 @@ const Dashboard = () => {
                     <Col md="7">
                       <Card>
                         <CardBody>
-                          <div id="chart">
+                          {/* <div id="chart">
                             <Chart
                               options={lineChart1.options}
                               series={lineChart1.series}
                               height="170"
                               type="area"
                             />
-                          </div>
+                          </div> */}
                         </CardBody>
                       </Card>
                     </Col>
                     <Col md="5">
                       <Card>
                         <CardBody>
-                          <div id="chart-order">
+                          {/* <div id="chart-order">
                             <Chart
                               options={apexPieChart.options}
                               series={apexPieChart.series}
                               type="donut"
                               width={380}
                             />
-                          </div>
+                          </div> */}
                         </CardBody>
                       </Card>
                     </Col>
@@ -404,7 +404,7 @@ const Dashboard = () => {
                                     price={data.price}
                                     sales={data.sales}
                                   />
-                                );
+                                )
                               })}
                             </tbody>
                           </table>
@@ -432,7 +432,7 @@ const Dashboard = () => {
                                     productDetails={data.productDetails}
                                     status={data.status}
                                   />
-                                );
+                                )
                               })}
                             </tbody>
                           </table>
@@ -476,7 +476,7 @@ const Dashboard = () => {
                                     price={data.price}
                                     sales={data.sales}
                                   />
-                                );
+                                )
                               })}
                             </tbody>
                           </table>
@@ -515,7 +515,7 @@ const Dashboard = () => {
                                     status={data.status}
                                     price={data.price}
                                   />
-                                );
+                                )
                               })}
                             </tbody>
                           </table>
@@ -548,7 +548,7 @@ const Dashboard = () => {
                                       title={data.title}
                                       detail={data.detail}
                                     />
-                                  );
+                                  )
                                 })}
                               </ul>
                             </div>
@@ -766,7 +766,7 @@ const Dashboard = () => {
                 <ModalHeader toggle={toggle}>Logging Out</ModalHeader>
                 <ModalBody className="p-4">Do you want to logout?</ModalBody>
                 <ModalFooter>
-                  <Link href={"/"}>
+                  <Link href={'/'}>
                     <a className="btn-solid btn-custom" color="secondary">
                       Yes
                     </a>
@@ -785,7 +785,7 @@ const Dashboard = () => {
         </Row>
       </Container>
     </section>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
