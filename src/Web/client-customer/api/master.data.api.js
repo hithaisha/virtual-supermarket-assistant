@@ -1,5 +1,5 @@
 import axios from 'axios'
-import store from '../../store'
+import store from '../pages/store/store'
 
 // const BASE_URL = "http://localhost:5000";
 const BASE_URL = 'http://morr.eastus.cloudapp.azure.com:8084'

@@ -14,7 +14,7 @@ import Helmet from 'react-helmet'
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '../helpers/apollo'
 import { Provider } from 'react-redux'
-import store from './store'
+import store from './store/store'
 
 export default function MyApp({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true)
