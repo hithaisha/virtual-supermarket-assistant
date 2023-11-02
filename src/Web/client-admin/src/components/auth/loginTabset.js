@@ -11,8 +11,8 @@ import { useDispatch } from 'react-redux';
 
 const LoginTabset = () => {
 	const history = useNavigate();
-	const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+	const [username, setUsername] = useState('admin@morr.com');
+    const [password, setPassword] = useState('pass@123');
 	const dispatch = useDispatch();
 
     const handleUsernameChange = (event) => {
