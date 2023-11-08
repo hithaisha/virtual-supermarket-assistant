@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const BASE_URL = "http://localhost:5000";
-const BASE_URL = 'http://morr.eastus.cloudapp.azure.com:8084'
+const BASE_URL = 'http://localhost:5000'
+// const BASE_URL = 'http://morr.eastus.cloudapp.azure.com:8084'
 
 const login = (payload) => {
   const formattedReq = {
